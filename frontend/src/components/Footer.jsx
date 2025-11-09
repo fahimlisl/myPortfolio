@@ -33,7 +33,7 @@ const Footer = () => {
 
       {/* ☕ Buy Me a Coffee button */}
       <motion.a
-        href="https://www.buymeacoffee.com/yourusername" // ← replace with your BuyMeACoffee link
+        href="https://buymeacoffee.com/developerfahim" // ← replace with your BuyMeACoffee link
         target="_blank"
         rel="noreferrer"
         whileHover={{ scale: 1.05, y: -2 }}
