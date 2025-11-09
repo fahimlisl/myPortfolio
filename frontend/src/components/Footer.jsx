@@ -11,10 +11,10 @@ const Footer = () => {
 
   return (
     <footer className="relative border-t border-gray-200 dark:border-gray-800 py-10 text-center mt-20">
-      {/* decorative gradient line */}
+
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[300px] h-[1px] bg-gradient-to-r from-transparent via-blue-500 to-transparent opacity-60"></div>
       
-      {/* social icons */}
+
       <div className="flex justify-center gap-8 mb-5">
         {socials.map((s, i) => (
           <motion.a
@@ -31,9 +31,8 @@ const Footer = () => {
         ))}
       </div>
 
-      {/* ☕ Buy Me a Coffee button */}
       <motion.a
-        href="https://buymeacoffee.com/developerfahim" // ← replace with your BuyMeACoffee link
+        href="https://buymeacoffee.com/developerfahim" 
         target="_blank"
         rel="noreferrer"
         whileHover={{ scale: 1.05, y: -2 }}
@@ -43,7 +42,7 @@ const Footer = () => {
         ☕ Buy Me a Coffee
       </motion.a>
 
-      {/* copyright */}
+
       <p className="text-gray-500 text-sm mt-6">
         © {new Date().getFullYear()} Fahim Abdullah — developed and maintained by Fahim Abdullah
       </p>

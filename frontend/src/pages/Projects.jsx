@@ -1,12 +1,12 @@
 import { motion } from "framer-motion";
 import { ExternalLink, Github } from "lucide-react";
 
-// 🧩 Dummy data — replace with your real projects later
+
 const projects = [
   {
     title: "Student Admin Panel",
     description:
-      "A full-stack admin dashboard built with React, Express, and MongoDB for managing student fees and profiles.",
+      "A school website built with React, for showcasing the school in the upper level.",
     tech: ["React", "Node.js", "MongoDB", "TailwindCSS"],
     image:
       "https://res.cloudinary.com/dkrwq4wvi/image/upload/v1762506417/project%20school.jpg",
@@ -16,16 +16,16 @@ const projects = [
   {
     title: "Portfolio Website",
     description:
-      "My personal developer portfolio — built with React, Tailwind, and Framer Motion, featuring smooth animations and dark mode.",
+      "My personal developer portfolio — built with React, Tailwind , Express , and Framer Motion and Mongodb featuring smooth animations and dark mode with integrated backend .",
     tech: ["React", "Framer Motion", "Tailwind"],
-    image: "/project2.png",
-    demo: "https://your-portfolio-link.com",
-    github: "https://github.com/yourusername/portfolio",
+    image: "https://res.cloudinary.com/dkrwq4wvi/image/upload/v1762710961/myport.jpg",
+    demo: "https://fahim.in",
+    github: "https://github.com/fahimlisl/myPortfolio",
   },
   {
     title: "Payment Gateway Integration",
     description:
-      "A secure Razorpay integration with Express and Node.js for accepting payments seamlessly in web applications.",
+      "A secure Razorpay integration with Express and Node.js for accepting payments seamlessly in web applications. \n(comming soon)",
     tech: ["Express", "Razorpay", "Node.js"],
     image: "/project3.png",
     demo: "#",
@@ -141,7 +141,7 @@ const Projects = () => {
               </div>
             </div>
 
-            {/* Glow overlay (✅ fixed with pointer-events-none) */}
+
             <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-tr from-cyan-400/10 to-blue-600/10 blur-xl"></div>
           </motion.div>
         ))}

@@ -50,7 +50,7 @@ const Navbar = () => {
           </span>
         </Link>
 
-        {/* Desktop Navigation */}
+
         <div className="hidden md:flex gap-8 text-gray-700 dark:text-gray-200">
           {navLinks.map((link) => (
             <motion.div key={link.name} className="relative group">
@@ -75,7 +75,7 @@ const Navbar = () => {
           ))}
         </div>
 
-        {/* Mobile Menu Button */}
+
         <div className="md:hidden">
           <button onClick={() => setOpen(!open)}>
             {open ? <X size={26} /> : <Menu size={26} />}
@@ -83,7 +83,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+
       {open && (
         <motion.div
           initial={{ opacity: 0 }}

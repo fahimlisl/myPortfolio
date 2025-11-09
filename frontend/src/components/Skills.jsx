@@ -30,10 +30,10 @@ const Skills = () => {
       id="skills"
       className="relative py-24 px-6 sm:px-10 lg:px-20 text-center overflow-hidden"
     >
-      {/* soft background gradient glow */}
+
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-transparent via-blue-50/30 to-transparent dark:via-gray-900/50"></div>
 
-      {/* heading */}
+
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -55,7 +55,7 @@ const Skills = () => {
         applications.
       </motion.p>
 
-      {/* skills grid */}
+
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -86,7 +86,7 @@ const Skills = () => {
               {skill.name}
             </p>
 
-            {/* glow accent on hover */}
+
             <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-br from-cyan-400/10 to-blue-500/10 blur-lg -z-10"></div>
           </motion.div>
         ))}

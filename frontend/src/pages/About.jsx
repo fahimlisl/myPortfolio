@@ -4,11 +4,11 @@ import { Code2 } from "lucide-react";
 const About = () => {
   return (
     <section className="relative min-h-screen flex flex-col justify-center items-center text-center px-6 sm:px-10 py-20 overflow-hidden">
-      {/* Background glows */}
+
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-transparent via-blue-50/30 to-transparent dark:via-gray-900/60"></div>
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] sm:w-[900px] h-[700px] sm:h-[900px] bg-gradient-to-tr from-cyan-400/20 to-blue-600/20 blur-3xl opacity-30 rounded-full"></div>
 
-      {/* Title */}
+
       <motion.h1
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -18,14 +18,14 @@ const About = () => {
         About Me
       </motion.h1>
 
-      {/* Content Card */}
+
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2, duration: 0.8 }}
         className="w-full max-w-4xl bg-white/60 dark:bg-gray-800/60 backdrop-blur-xl rounded-2xl shadow-lg p-6 sm:p-10 text-left border border-gray-200/40 dark:border-gray-700/40"
       >
-        {/* Header */}
+
         <div className="flex items-center gap-3 mb-6">
           <Code2 className="text-blue-500 dark:text-cyan-400" size={24} />
           <h2 className="text-2xl sm:text-3xl font-semibold text-gray-800 dark:text-gray-100">
@@ -33,7 +33,7 @@ const About = () => {
           </h2>
         </div>
 
-        {/* Story / Text */}
+
         <div className="space-y-5 text-base sm:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
           <p>
             I’m a <span className="font-medium text-blue-600 dark:text-cyan-400">
@@ -63,7 +63,7 @@ const About = () => {
           </p>
         </div>
 
-        {/* Dev snippet */}
+
         <div className="mt-10 bg-gray-900/90 text-gray-100 font-mono text-xs sm:text-sm rounded-xl overflow-hidden border border-gray-700">
           <div className="flex items-center gap-2 bg-gray-800 px-4 py-2 text-gray-400 text-xs">
             <span className="w-3 h-3 bg-red-500 rounded-full"></span>

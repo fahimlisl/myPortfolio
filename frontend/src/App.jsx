@@ -19,7 +19,7 @@ const App = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [location.pathname]);
 
-  // ✨ Animation variants for page transitions
+  // Animation variants for page transitions
   const pageTransition = {
     initial: { opacity: 0, y: 20 },
     animate: { opacity: 1, y: 0 },
@@ -94,7 +94,7 @@ const App = () => {
               }
             />
 
-            {/* 🚫 Catch-all 404 Route */}
+            {/* 404 Route */}
             <Route
               path="*"
               element={
@@ -107,7 +107,7 @@ const App = () => {
         </AnimatePresence>
       </main>
 
-      {/* ✅ Footer only for valid routes */}
+
       {isValidRoute && <Footer />}
     </div>
   );
