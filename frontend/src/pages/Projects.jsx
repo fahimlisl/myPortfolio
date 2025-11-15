@@ -1,8 +1,7 @@
 import { motion } from "framer-motion";
 import { ExternalLink, Github } from "lucide-react";
-import { Helmet } from "react-helmet-async";
 
-// 🛠️ Project Data
+
 const projects = [
   {
     title: "Student Admin Panel",
@@ -39,21 +38,12 @@ const Projects = () => {
   return (
     <section className="relative min-h-screen py-20 px-6 sm:px-12 lg:px-20 overflow-hidden">
 
-      {/* 🧠 SEO */}
-      <Helmet>
-        <title>Projects | Fahim Abdullah</title>
-        <meta
-          name="description"
-          content="Explore the full-stack and backend development projects by Fahim Abdullah — featuring React, Node.js, Express, MongoDB, Razorpay integrations, and more."
-        />
-        <link rel="canonical" href="https://fahim.in/projects" />
-      </Helmet>
 
-      {/* Background Effects */}
+
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-transparent via-blue-50/40 to-transparent dark:via-gray-900/60 pointer-events-none"></div>
       <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-gradient-to-r from-blue-400/10 to-cyan-400/10 blur-3xl rounded-full opacity-50 pointer-events-none"></div>
 
-      {/* Heading */}
+
       <motion.h1
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -63,7 +53,7 @@ const Projects = () => {
         Projects
       </motion.h1>
 
-      {/* Subtitle */}
+
       <motion.p
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
@@ -74,7 +64,7 @@ const Projects = () => {
         scalable, and visually appealing full-stack applications.
       </motion.p>
 
-      {/* Project Grid */}
+
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -100,7 +90,7 @@ const Projects = () => {
             transition={{ type: "spring", stiffness: 200 }}
             className="group relative bg-white/60 dark:bg-gray-800/60 backdrop-blur-xl border border-gray-200 dark:border-gray-700 rounded-2xl shadow-md overflow-hidden hover:shadow-blue-500/20 transition-all"
           >
-            {/* Image */}
+
             <div className="h-52 overflow-hidden">
               <img
                 src={project.image}
@@ -110,7 +100,7 @@ const Projects = () => {
               />
             </div>
 
-            {/* Content */}
+
             <div className="p-6 relative z-10">
               <h3 className="text-xl font-semibold mb-2 text-gray-800 dark:text-gray-100">
                 {project.title}
@@ -120,7 +110,7 @@ const Projects = () => {
                 {project.description}
               </p>
 
-              {/* Tech Stack */}
+
               <div className="flex flex-wrap gap-2 mb-4">
                 {project.tech.map((item, idx) => (
                   <span
@@ -132,9 +122,9 @@ const Projects = () => {
                 ))}
               </div>
 
-              {/* Buttons */}
+
               <div className="flex gap-4">
-                {/* Demo */}
+
                 {project.demo ? (
                   <a
                     href={project.demo}
@@ -148,7 +138,7 @@ const Projects = () => {
                   <p className="text-gray-500 text-xs italic">Demo coming soon</p>
                 )}
 
-                {/* GitHub */}
+
                 {project.github ? (
                   <a
                     href={project.github}
@@ -164,7 +154,7 @@ const Projects = () => {
               </div>
             </div>
 
-            {/* Hover Glow */}
+
             <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-tr from-cyan-400/10 to-blue-600/10 blur-xl"></div>
           </motion.div>
         ))}

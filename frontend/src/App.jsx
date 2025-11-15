@@ -2,7 +2,6 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect } from "react";
 import { Toaster } from "react-hot-toast";
-import { Helmet } from "react-helmet-async";
 
 import Navbar from "./components/Navbar.jsx";
 import Footer from "./components/Footer.jsx";
@@ -15,12 +14,12 @@ import NotFound from "./pages/NotFound.jsx";
 const App = () => {
   const location = useLocation();
 
-  // Smooth scroll to top on every page change
+  // Smooth scroll to top on route changes
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [location.pathname]);
 
-  // Page transition animation
+  // Page animation
   const pageTransition = {
     initial: { opacity: 0, y: 20 },
     animate: { opacity: 1, y: 0 },
@@ -28,44 +27,14 @@ const App = () => {
     transition: { duration: 0.4, ease: "easeInOut" },
   };
 
-  // Hide Navbar & Footer on 404 pages
+  // Show Navbar + Footer only on valid routes
   const validPaths = ["/", "/projects", "/about", "/contact"];
   const isValidRoute = validPaths.includes(location.pathname);
 
   return (
     <div className="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen font-sans">
-
-      {/* 🌐 Global SEO */}
-      <Helmet>
-        <title>Fahim Abdullah | JavaScript Backend Developer</title>
-        <meta
-          name="description"
-          content="I'm Fahim Abdullah — a JavaScript backend developer specializing in Node.js, Express, and MongoDB. Passionate about building clean, scalable, and fast backend systems."
-        />
-        <meta
-          name="keywords"
-          content="Fahim Abdullah, Backend Developer, JavaScript Developer, Node.js, MERN Stack, Express, MongoDB, React Developer"
-        />
-        <meta name="author" content="Fahim Abdullah" />
-
-        {/* Open Graph */}
-        <meta property="og:title" content="Fahim Abdullah | Backend Developer" />
-        <meta property="og:description" content="JavaScript backend developer building high-performance web systems." />
-        <meta property="og:image" content="/preview.jpeg" />
-        <meta property="og:url" content="https://fahim.in" />
-        <meta property="og:type" content="website" />
-
-        {/* Twitter SEO */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Fahim Abdullah | Backend Developer" />
-        <meta name="twitter:description" content="Backend developer skilled in Node.js, Express, MongoDB." />
-        <meta name="twitter:image" content="/preview.png" />
-
-        {/* Canonical URL */}
-        <link rel="canonical" href="https://fahim.in" />
-      </Helmet>
-
-      {/* 🔔 Global toast notifications */}
+      
+      {/* Global Toasts */}
       <Toaster
         position="bottom-center"
         toastOptions={{
@@ -82,10 +51,10 @@ const App = () => {
         }}
       />
 
-      {/* Navbar */}
+      {/* Navbar (hidden on 404) */}
       {isValidRoute && <Navbar />}
 
-      {/* Page transition container */}
+      {/* Pages with animation */}
       <main className="pt-20 overflow-x-hidden">
         <AnimatePresence mode="wait">
           <Routes location={location} key={location.pathname}>
@@ -140,7 +109,7 @@ const App = () => {
         </AnimatePresence>
       </main>
 
-      {/* Footer */}
+      {/* Footer (hidden on 404) */}
       {isValidRoute && <Footer />}
     </div>
   );

@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import { Mail, Github, Linkedin, Phone } from "lucide-react";
 import toast from "react-hot-toast";
 import emailjs from "emailjs-com";
-import { Helmet } from "react-helmet-async";
 
 const Contact = () => {
   const form = useRef();
@@ -43,15 +42,6 @@ const Contact = () => {
   return (
     <section className="relative min-h-screen flex flex-col justify-center items-center px-6 sm:px-10 py-24 overflow-hidden">
 
-      {/* 🧠 SEO */}
-      <Helmet>
-        <title>Contact | Fahim Abdullah</title>
-        <meta
-          name="description"
-          content="Get in touch with Fahim Abdullah for web development, backend engineering, collaborations or project inquiries."
-        />
-        <link rel="canonical" href="https://fahim.in/contact" />
-      </Helmet>
 
       {/* Background gradient */}
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-transparent via-blue-50/40 to-transparent dark:via-gray-900/60"></div>

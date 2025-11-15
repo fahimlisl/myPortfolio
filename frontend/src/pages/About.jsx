@@ -1,19 +1,9 @@
 import { motion } from "framer-motion";
 import { Code2 } from "lucide-react";
-import { Helmet } from "react-helmet-async";
 
 const About = () => {
   return (
     <section className="relative min-h-screen flex flex-col justify-center items-center px-6 sm:px-10 py-24 overflow-hidden">
-
-      {/* SEO */}
-      <Helmet>
-        <title>About | Fahim Abdullah</title>
-        <meta
-          name="description"
-          content="Learn more about Fahim Abdullah — a JavaScript Backend Developer specializing in Node.js, Express, and MongoDB. Passionate about clean architecture, scalable APIs, and modern UI development."
-        />
-      </Helmet>
 
 
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-transparent via-blue-50/40 to-transparent dark:via-gray-900/60"></div>
