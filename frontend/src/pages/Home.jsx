@@ -1,16 +1,23 @@
 import React from "react";
-import Navbar from "../components/Navbar.jsx";
-import Footer from "../components/Footer.jsx";
 import Hero from "../components/Hero.jsx";
 import Skills from "../components/Skills.jsx";
+import { Helmet } from "react-helmet-async";
 
 function Home() {
   return (
     <>
-    <Hero />
-    <Skills />
+      <Helmet>
+        <title>Home | Fahim Abdullah</title>
+        <meta
+          name="description"
+          content="Welcome to the portfolio of Fahim Abdullah — JavaScript backend developer skilled in Node.js, Express, and MongoDB."
+        />
+      </Helmet>
+
+      <Hero />
+      <Skills />
     </>
-  )
+  );
 }
 
-export default Home
+export default Home;

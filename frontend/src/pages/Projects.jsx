@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import { ExternalLink, Github } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 
-
+// 🛠️ Project Data
 const projects = [
   {
     title: "Student Admin Panel",
@@ -16,31 +17,43 @@ const projects = [
   {
     title: "Portfolio Website",
     description:
-      "My personal developer portfolio — built with React, Tailwind , Express , and Framer Motion and Mongodb featuring smooth animations and dark mode with integrated backend .",
+      "My personal developer portfolio — built with React, Tailwind, Express, Framer Motion, and MongoDB. Features animations, dark mode, and backend integration.",
     tech: ["React", "Framer Motion", "Tailwind"],
-    image: "https://res.cloudinary.com/dkrwq4wvi/image/upload/v1762710961/myport.jpg",
+    image:
+      "https://res.cloudinary.com/dkrwq4wvi/image/upload/v1762710961/myport.jpg",
     demo: "https://fahim.in",
     github: "https://github.com/fahimlisl/myPortfolio",
   },
   {
     title: "Payment Gateway Integration",
     description:
-      "A secure Razorpay integration with Express and Node.js for accepting payments seamlessly in web applications. \n(comming soon)",
+      "A secure Razorpay integration with Express and Node.js for accepting payments seamlessly in web applications. (coming soon)",
     tech: ["Express", "Razorpay", "Node.js"],
     image: "/project3.png",
-    demo: "#",
-    github: "#",
+    demo: "",
+    github: "",
   },
 ];
 
 const Projects = () => {
   return (
     <section className="relative min-h-screen py-20 px-6 sm:px-12 lg:px-20 overflow-hidden">
-      {/* background glow */}
-      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-transparent via-blue-50/30 to-transparent dark:via-gray-900/60 pointer-events-none"></div>
+
+      {/* 🧠 SEO */}
+      <Helmet>
+        <title>Projects | Fahim Abdullah</title>
+        <meta
+          name="description"
+          content="Explore the full-stack and backend development projects by Fahim Abdullah — featuring React, Node.js, Express, MongoDB, Razorpay integrations, and more."
+        />
+        <link rel="canonical" href="https://fahim.in/projects" />
+      </Helmet>
+
+      {/* Background Effects */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-transparent via-blue-50/40 to-transparent dark:via-gray-900/60 pointer-events-none"></div>
       <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-gradient-to-r from-blue-400/10 to-cyan-400/10 blur-3xl rounded-full opacity-50 pointer-events-none"></div>
 
-      {/* heading */}
+      {/* Heading */}
       <motion.h1
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -50,17 +63,18 @@ const Projects = () => {
         Projects
       </motion.h1>
 
+      {/* Subtitle */}
       <motion.p
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.1, duration: 0.5 }}
-        className="text-gray-600 dark:text-gray-300 text-center max-w-2xl mx-auto mb-16"
+        className="text-gray-600 dark:text-gray-300 text-center max-w-2xl mx-auto mb-16 text-lg"
       >
         A selection of projects that showcase my skills in building modern,
         scalable, and visually appealing full-stack applications.
       </motion.p>
 
-      {/* Projects grid */}
+      {/* Project Grid */}
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -75,9 +89,9 @@ const Projects = () => {
         }}
         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto"
       >
-        {projects.map((project, i) => (
+        {projects.map((project, index) => (
           <motion.div
-            key={i}
+            key={index}
             variants={{
               hidden: { opacity: 0, y: 30 },
               visible: { opacity: 1, y: 0 },
@@ -90,7 +104,8 @@ const Projects = () => {
             <div className="h-52 overflow-hidden">
               <img
                 src={project.image}
-                alt={project.title}
+                alt={`${project.title} preview`}
+                loading="lazy"
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
               />
             </div>
@@ -100,25 +115,27 @@ const Projects = () => {
               <h3 className="text-xl font-semibold mb-2 text-gray-800 dark:text-gray-100">
                 {project.title}
               </h3>
+
               <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">
                 {project.description}
               </p>
 
-              {/* Tech tags */}
+              {/* Tech Stack */}
               <div className="flex flex-wrap gap-2 mb-4">
-                {project.tech.map((t, idx) => (
+                {project.tech.map((item, idx) => (
                   <span
                     key={idx}
                     className="text-xs px-3 py-1 bg-blue-500/10 border border-blue-500/20 text-blue-500 dark:text-cyan-400 rounded-full"
                   >
-                    {t}
+                    {item}
                   </span>
                 ))}
               </div>
 
               {/* Buttons */}
               <div className="flex gap-4">
-                {project.demo && (
+                {/* Demo */}
+                {project.demo ? (
                   <a
                     href={project.demo}
                     target="_blank"
@@ -127,8 +144,12 @@ const Projects = () => {
                   >
                     <ExternalLink size={16} /> Demo
                   </a>
+                ) : (
+                  <p className="text-gray-500 text-xs italic">Demo coming soon</p>
                 )}
-                {project.github && (
+
+                {/* GitHub */}
+                {project.github ? (
                   <a
                     href={project.github}
                     target="_blank"
@@ -137,11 +158,13 @@ const Projects = () => {
                   >
                     <Github size={16} /> Code
                   </a>
+                ) : (
+                  <p className="text-gray-500 text-xs italic">Private</p>
                 )}
               </div>
             </div>
 
-
+            {/* Hover Glow */}
             <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-tr from-cyan-400/10 to-blue-600/10 blur-xl"></div>
           </motion.div>
         ))}
