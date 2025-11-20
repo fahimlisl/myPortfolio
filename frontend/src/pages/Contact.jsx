@@ -43,11 +43,11 @@ const Contact = () => {
     <section className="relative min-h-screen flex flex-col justify-center items-center px-6 sm:px-10 py-24 overflow-hidden">
 
 
-      {/* Background gradient */}
+
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-transparent via-blue-50/40 to-transparent dark:via-gray-900/60"></div>
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-gradient-to-tr from-cyan-400/25 to-blue-600/25 blur-3xl opacity-40 rounded-full"></div>
 
-      {/* Heading */}
+
       <motion.h1
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -57,7 +57,7 @@ const Contact = () => {
         Let’s Connect
       </motion.h1>
 
-      {/* Subtext */}
+
       <motion.p
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
@@ -68,10 +68,10 @@ const Contact = () => {
         Feel free to drop a message — I’d love to connect with you 🚀
       </motion.p>
 
-      {/* Grid Layout */}
+
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 w-full max-w-5xl">
 
-        {/* FORM */}
+
         <motion.form
           ref={form}
           onSubmit={sendEmail}
@@ -81,7 +81,7 @@ const Contact = () => {
           className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-xl rounded-2xl p-8 sm:p-10 shadow-lg border border-gray-200/40 dark:border-gray-700/40 flex flex-col gap-5"
         >
 
-          {/* Name */}
+
           <div className="flex flex-col gap-2">
             <label htmlFor="name" className="text-gray-700 dark:text-gray-200 font-medium">
               Name
@@ -97,7 +97,7 @@ const Contact = () => {
             />
           </div>
 
-          {/* Email */}
+
           <div className="flex flex-col gap-2">
             <label htmlFor="email" className="text-gray-700 dark:text-gray-200 font-medium">
               Email
@@ -113,7 +113,7 @@ const Contact = () => {
             />
           </div>
 
-          {/* Message */}
+
           <div className="flex flex-col gap-2">
             <label htmlFor="message" className="text-gray-700 dark:text-gray-200 font-medium">
               Message
@@ -129,7 +129,7 @@ const Contact = () => {
             ></textarea>
           </div>
 
-          {/* Submit Button */}
+
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -142,7 +142,7 @@ const Contact = () => {
           </motion.button>
         </motion.form>
 
-        {/* CONTACT INFO */}
+
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}

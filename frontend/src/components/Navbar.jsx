@@ -32,12 +32,12 @@ const Navbar = () => {
       animate={{ y: 0, opacity: 1 }}
     >
       <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
-        {/* Logo */}
+
         <Link
           to="/"
           className="flex items-center gap-2 text-2xl font-semibold tracking-tight hover:opacity-80 transition-all"
         >
-          {/* 👇 Custom </> code logo */}
+
           <motion.span
             whileHover={{ scale: 1.15, rotate: 5 }}
             transition={{ type: "spring", stiffness: 200 }}
