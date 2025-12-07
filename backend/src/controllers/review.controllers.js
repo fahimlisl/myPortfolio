@@ -17,7 +17,7 @@ const registerReview = asyncHandler( async(req,res) => {
     }
         
 
-    const review = Review.create({
+    const review = await Review.create({
         username,
         message,
         star,
@@ -38,5 +38,18 @@ const registerReview = asyncHandler( async(req,res) => {
     )
 })
 
+const getAllReview = asyncHandler( async(req,res) => {
+    const reviews = await Review.find({})
 
-export {registerReview}
+    return res
+    .status(200)
+    .json(
+        new ApiResponse(
+            200,
+            reviews || "current no of reviews are zero",
+            "fetched all the reveiws"
+        )
+    )
+})
+
+export {registerReview,getAllReview}
