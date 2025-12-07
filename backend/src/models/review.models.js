@@ -18,6 +18,9 @@ const reviewSchema = new mongoose.Schema({
     positionOfReviewer:{
         type:String,
         required:true
+    },
+    project:{
+        type:String
     }
 },{timestamps:true})
 

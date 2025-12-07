@@ -10,4 +10,9 @@ app.use(express.json(urlencoded({extended:true , limit:"16kb"})))
 app.use(express.json({limit:"16kb"}))
 app.use(express.static("public"))
 
+import reviewRoute from "./routes/review.routes.js"
+
+// routes
+app.use("/api/v1/review",reviewRoute)
+
 export {app}
