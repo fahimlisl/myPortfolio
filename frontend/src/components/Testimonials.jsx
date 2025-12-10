@@ -19,7 +19,7 @@ const Testimonials = () => {
 
   const fetchReviews = async () => {
     try {
-      const res = await axios.get(`${BASE_URL}/review/getAll`);
+      const res = await axios.get(`${BASE_URL}/api/v1/review/getAll`);
       setReviews(res.data.data);
     } catch (err) {
       console.log("Failed to fetch reviews", err);
