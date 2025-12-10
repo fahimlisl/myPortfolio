@@ -15,7 +15,7 @@ const Testimonials = () => {
     projectUrl: ""
   });
 
-  const BASE_URL = "http://localhost:8090/api/v1";
+  const BASE_URL = import.meta.env.VITE_BASE_URL;
 
   const fetchReviews = async () => {
     try {
