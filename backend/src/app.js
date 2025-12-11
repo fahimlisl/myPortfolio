@@ -17,6 +17,14 @@ app.use(express.json({ limit: "16kb" }));
 app.use(express.urlencoded({ extended: true, limit: "16kb" }));
 app.use(express.static("public"));
 
+app.get("/health", (req, res) => {
+  res.status(200).json({ 
+    status: "OK", 
+    message: "Server is running",
+    timestamp: new Date().toISOString()
+  });
+});
+
 import reviewRoute from "./routes/review.routes.js";
 
 app.use("/api/v1/review", reviewRoute);
