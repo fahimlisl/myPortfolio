@@ -5,28 +5,10 @@ import cors from "cors";
 
 const app = express();
 
-const allowedOrigins = [
-  "https://fahim.in",
-  "https://www.fahim.in",
-  "http://localhost:5173",
-];
-
-app.use(
-  cors({
-    origin: function (origin, callback) {
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        console.log("❌ Blocked by CORS:", origin);
-        callback(new Error("CORS Not Allowed"));
-      }
-    },
-    credentials: true,
-  })
-);
-
-app.options("*", cors());
-
+app.use(cors({
+  origin: process.env.CORS_ORIGIN,
+  credentials: true,
+}));
 
 
 app.use(morgan("combined"));
