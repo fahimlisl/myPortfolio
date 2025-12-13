@@ -4,7 +4,7 @@ import { ExternalLink, Github } from "lucide-react";
 
 const projects = [
   {
-    title: "Student Admin Panel",
+    title: "School",
     description:
       "A school website built with React, for showcasing the school in the upper level.",
     tech: ["React", "Node.js", "MongoDB", "TailwindCSS"],
@@ -24,13 +24,13 @@ const projects = [
     github: "https://github.com/fahimlisl/myPortfolio",
   },
   {
-    title: "Payment Gateway Integration",
+    title: "Role-Based School Management System",
     description:
-      "A secure Razorpay integration with Express and Node.js for accepting payments seamlessly in web applications. (coming soon)",
-    tech: ["Express", "Razorpay", "Node.js"],
-    image: "/project3.png",
-    demo: "",
-    github: "",
+      "A full-stack school management system powered by secure role-based authentication, enabling Admin, Teacher, and Student dashboards.",
+    tech: ["React","MongoDB","Express", "Razorpay", "Node.js"],
+    image: "https://res.cloudinary.com/dkrwq4wvi/image/upload/v1765650152/school.fahim.in.png",
+    demo: "https://school.fahim.in",
+    github: "https://github.com/fahimlisl/school",
   },
 ];
 
