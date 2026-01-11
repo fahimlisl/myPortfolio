@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Coffee } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
@@ -33,11 +33,11 @@ const Navbar = () => {
     >
       <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
 
+        {/* Logo */}
         <Link
           to="/"
           className="flex items-center gap-2 text-2xl font-semibold tracking-tight hover:opacity-80 transition-all"
         >
-
           <motion.span
             whileHover={{ scale: 1.15, rotate: 5 }}
             transition={{ type: "spring", stiffness: 200 }}
@@ -50,8 +50,8 @@ const Navbar = () => {
           </span>
         </Link>
 
-
-        <div className="hidden md:flex gap-8 text-gray-700 dark:text-gray-200">
+        {/* Desktop Menu */}
+        <div className="hidden md:flex items-center gap-8 text-gray-700 dark:text-gray-200">
           {navLinks.map((link) => (
             <motion.div key={link.name} className="relative group">
               <Link
@@ -73,9 +73,27 @@ const Navbar = () => {
               />
             </motion.div>
           ))}
+
+          {/* Buy Me a Coffee Button */}
+          <motion.a
+  href="https://buymeacoffee.com/developerfahim"
+  target="_blank"
+  rel="noreferrer"
+  whileHover={{ scale: 1.04, y: -1 }}
+  transition={{ type: "spring", stiffness: 250 }}
+  className="ml-3 inline-flex items-center gap-1.5 
+             px-3 py-1.5 rounded-md 
+             bg-gradient-to-r from-yellow-400 to-orange-500 
+             text-white text-sm font-medium 
+             shadow hover:shadow-md transition-all"
+>
+  <Coffee size={15} />
+  Coffee
+</motion.a>
+
         </div>
 
-
+        {/* Mobile Menu Button */}
         <div className="md:hidden">
           <button onClick={() => setOpen(!open)}>
             {open ? <X size={26} /> : <Menu size={26} />}
@@ -83,12 +101,14 @@ const Navbar = () => {
         </div>
       </div>
 
-
+      {/* Mobile Dropdown */}
       {open && (
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          className="md:hidden flex flex-col items-center bg-white/80 dark:bg-gray-900/80 backdrop-blur-md py-4 space-y-4 border-t border-gray-200 dark:border-gray-700"
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="md:hidden flex flex-col items-center bg-white/90 
+                     dark:bg-gray-900/90 backdrop-blur-md py-6 space-y-5 
+                     border-t border-gray-200 dark:border-gray-700"
         >
           {navLinks.map((link) => (
             <Link
@@ -104,6 +124,23 @@ const Navbar = () => {
               {link.name}
             </Link>
           ))}
+
+          {/* Mobile Buy Me a Coffee */}
+          <a
+  href="https://buymeacoffee.com/developerfahim"
+  target="_blank"
+  rel="noreferrer"
+  className="inline-flex items-center gap-2 
+             px-4 py-2 rounded-md 
+             bg-gradient-to-r from-yellow-400 to-orange-500 
+             text-white text-sm font-medium 
+             shadow hover:shadow-md transition-all"
+  onClick={() => setOpen(false)}
+>
+  <Coffee size={16} />
+  Buy Me Coffee
+</a>
+
         </motion.div>
       )}
     </motion.nav>

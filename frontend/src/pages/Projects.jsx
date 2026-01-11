@@ -32,6 +32,24 @@ const projects = [
     demo: "https://school.fahim.in",
     github: "https://github.com/fahimlisl/school",
   },
+  {
+    title: "Hospital Management System",
+    description:
+      "A role-based hospital management platform for managing patients, doctors, and hospital operations.",
+    tech: ["React","MongoDB","Express", "Node.js","Email Js"],
+    image: "https://res.cloudinary.com/dkrwq4wvi/image/upload/v1768109092/hospital.fahim.in.png",
+    demo: "https://hospital.fahim.in",
+    github: "https://github.com/fahimlisl/hospital-demo",
+  },
+  {
+    title: "Islamic Resource Distribution Platform — tajammulsalafiofficial.in",
+    description:
+      "A web platform for publishing and distributing authentic Islamic articles, khutbahs, Tafser and many educationla Contents",
+    tech: ["React","MongoDB","Express", "Node.js","Digital Ocean"],
+    image: "https://res.cloudinary.com/dkrwq4wvi/image/upload/v1768109398/tajammulsalafiofficial.png",
+    demo: "https://tajammulsalafiofficial.in",
+    github: "",
+  },
 ];
 
 const Projects = () => {
