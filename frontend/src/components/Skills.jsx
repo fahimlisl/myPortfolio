@@ -2,27 +2,42 @@ import React from "react";
 import { motion } from "framer-motion";
 import {
   SiJavascript,
+  SiTypescript,
   SiReact,
   SiTailwindcss,
   SiNodedotjs,
-  SiMongodb,
   SiExpress,
-  SiGithub,
+  SiMongodb,
   SiHtml5,
   SiCss3,
+  SiGithub,
+  SiN8N,
+  SiLinux,
+  SiNginx,
+  SiDocker,
+  SiPostman,
+  SiGit,
+  SiYaml
 } from "react-icons/si";
 
 const skills = [
   { name: "JavaScript", icon: <SiJavascript className="text-yellow-400" /> },
+  { name: "TypeScript", icon: <SiTypescript className="text-blue-500" /> },
   { name: "React", icon: <SiReact className="text-cyan-400" /> },
   { name: "TailwindCSS", icon: <SiTailwindcss className="text-sky-400" /> },
   { name: "Node.js", icon: <SiNodedotjs className="text-green-500" /> },
-  { name: "Express", icon: <SiExpress className="text-gray-400" /> },
+  { name: "Express.js", icon: <SiExpress className="text-gray-400" /> },
   { name: "MongoDB", icon: <SiMongodb className="text-green-400" /> },
-  { name: "HTML", icon: <SiHtml5 className="text-orange-500" /> },
-  { name: "CSS", icon: <SiCss3 className="text-blue-500" /> },
+  { name: "Git", icon: <SiGit className="text-orange-500" /> },
   { name: "GitHub", icon: <SiGithub className="text-gray-300" /> },
+  { name: "n8n", icon: <SiN8N className="text-red-500" /> },
+  { name: "Linux / VPS", icon: <SiLinux className="text-yellow-500" /> },
+  { name: "Nginx", icon: <SiNginx className="text-green-600" /> },
+  { name: "Docker", icon: <SiDocker className="text-blue-400" /> },
+  { name: "Postman", icon: <SiPostman className="text-orange-600" /> },
+  { name: "YAML", icon: <SiYaml className="text-red-500" /> },
 ];
+
 
 const Skills = () => {
   return (
@@ -41,7 +56,7 @@ const Skills = () => {
         transition={{ duration: 0.6 }}
         className="text-4xl sm:text-5xl font-bold mb-10 bg-gradient-to-r from-cyan-400 to-blue-600 text-transparent bg-clip-text"
       >
-        My Toolbox
+        Engineering Stack
       </motion.h2>
 
       <motion.p

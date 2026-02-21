@@ -50,6 +50,16 @@ const projects = [
     demo: "https://tajammulsalafiofficial.in",
     github: "",
   },
+  {
+    title: "AlphaGym – Fully Customized Gym Management System",
+    description:
+    "A MERN stack gym management platform with member tracking, attendance, fee management, and automated workflows, deployed on a production VPS.",
+    tech: ["React","MongoDB","Express", "Node.js","Digital Ocean","Nginx","n8n"],
+    image: "https://res.cloudinary.com/dkrwq4wvi/image/upload/v1771656754/alphagym-portfolio.png",
+    // demo: "https://alphagym.fit",
+    demo: "",
+    github: "",
+  },
 ];
 
 const Projects = () => {
