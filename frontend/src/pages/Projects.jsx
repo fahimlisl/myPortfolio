@@ -3,16 +3,16 @@ import { ExternalLink, Github } from "lucide-react";
 
 
 const projects = [
-  {
-    title: "School",
-    description:
-      "A school website built with React, for showcasing the school in the upper level.",
-    tech: ["React", "Node.js", "MongoDB", "TailwindCSS"],
-    image:
-      "https://res.cloudinary.com/dkrwq4wvi/image/upload/v1762506417/project%20school.jpg",
-    demo: "https://rhacademy.in",
-    github: "https://github.com/fahimlisl/rhacademy",
-  },
+  // {
+  //   title: "School",
+  //   description:
+  //     "A school website built with React, for showcasing the school in the upper level.",
+  //   tech: ["React", "Node.js", "MongoDB", "TailwindCSS"],
+  //   image:
+  //     "https://res.cloudinary.com/dkrwq4wvi/image/upload/v1762506417/project%20school.jpg",
+  //   demo: "https://rhacademy.in",
+  //   github: "https://github.com/fahimlisl/rhacademy",
+  // },
   {
     title: "Portfolio Website",
     description:
@@ -56,8 +56,8 @@ const projects = [
     "A MERN stack gym management platform with member tracking, attendance, fee management, and automated workflows, deployed on a production VPS.",
     tech: ["React","MongoDB","Express", "Node.js","Digital Ocean","Nginx","n8n"],
     image: "https://res.cloudinary.com/dkrwq4wvi/image/upload/v1771656754/alphagym-portfolio.png",
-    // demo: "https://alphagym.fit",
-    demo: "",
+    demo: "https://alphagym.fit",
+    // demo: "",
     github: "",
   },
 ];
