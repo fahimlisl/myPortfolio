@@ -10,6 +10,8 @@ import Contact from "./pages/Contact.jsx";
 import Projects from "./pages/Projects.jsx";
 import About from "./pages/About.jsx";
 import NotFound from "./pages/NotFound.jsx";
+import Privacy from "./pages/Privacy.jsx"
+import Terms from "./pages/Terms.jsx"
 
 const App = () => {
   const location = useLocation();
@@ -91,6 +93,22 @@ const App = () => {
               element={
                 <motion.div {...pageTransition}>
                   <About />
+                </motion.div>
+              }
+            />
+            <Route
+              path="/privacy"
+              element={
+                <motion.div {...pageTransition}>
+                  <Privacy />
+                </motion.div>
+              }
+            />
+            <Route
+              path="/terms"
+              element={
+                <motion.div {...pageTransition}>
+                  <Terms />
                 </motion.div>
               }
             />
