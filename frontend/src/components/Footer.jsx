@@ -32,7 +32,8 @@ const Footer = () => {
       </div>
 
       <motion.a
-        href="https://buymeacoffee.com/developerfahim" 
+        // href="https://buymeacoffee.com/developerfahim" 
+        href="https://razorpay.me/@fahimabdullah"
         target="_blank"
         rel="noreferrer"
         whileHover={{ scale: 1.05, y: -2 }}

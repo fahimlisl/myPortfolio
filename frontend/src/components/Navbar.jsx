@@ -19,8 +19,8 @@ const Navbar = () => {
     { name: "Projects", path: "/projects" },
     { name: "About", path: "/about" },
     { name: "Contact", path: "/contact" },
-    { name: "Privacy Policy", path: "/privacy" },
-    { name: "Terms of Service", path: "/terms" },
+    // { name: "Privacy Policy", path: "/privacy" },
+    // { name: "Terms of Service", path: "/terms" },
   ];
 
   return (
@@ -78,7 +78,8 @@ const Navbar = () => {
 
           {/* Buy Me a Coffee Button */}
           <motion.a
-  href="https://buymeacoffee.com/developerfahim"
+  // href="https://buymeacoffee.com/developerfahim"
+  href="https://razorpay.me/@fahimabdullah"
   target="_blank"
   rel="noreferrer"
   whileHover={{ scale: 1.04, y: -1 }}
@@ -129,7 +130,8 @@ const Navbar = () => {
 
           {/* Mobile Buy Me a Coffee */}
           <a
-  href="https://buymeacoffee.com/developerfahim"
+  // href="https://buymeacoffee.com/developerfahim"
+  href="https://razorpay.me/@fahimabdullah"
   target="_blank"
   rel="noreferrer"
   className="inline-flex items-center gap-2 
