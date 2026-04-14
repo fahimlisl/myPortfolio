@@ -1,14 +1,14 @@
 import { useState, useEffect, useRef } from "react";
-import { motion, useAnimation } from "framer-motion";
+import { motion } from "framer-motion";
 import axios from "axios";
 
 const Testimonials = () => {
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(true);
   const [open, setOpen] = useState(false);
-  const [scrollIndex, setScrollIndex] = useState(0);
-  const carouselRef = useRef(null);
-  const controls = useAnimation();
+  const containerRef = useRef(null);
+  const trackRef = useRef(null);
+  const [dragLeft, setDragLeft] = useState(0);
 
   const [form, setForm] = useState({
     username: "",
@@ -19,7 +19,6 @@ const Testimonials = () => {
   });
 
   const BASE_URL = import.meta.env.VITE_BASE_URL;
-  const cardWidth = 380; // Width of each card including gap
 
   const fetchReviews = async () => {
     try {
@@ -36,6 +35,20 @@ const Testimonials = () => {
     fetchReviews();
   }, []);
 
+  // Recalculate drag bounds whenever reviews load or window resizes
+  useEffect(() => {
+    const calculate = () => {
+      if (containerRef.current && trackRef.current) {
+        const containerWidth = containerRef.current.offsetWidth;
+        const trackWidth = trackRef.current.scrollWidth;
+        setDragLeft(-(trackWidth - containerWidth));
+      }
+    };
+    calculate();
+    window.addEventListener("resize", calculate);
+    return () => window.removeEventListener("resize", calculate);
+  }, [reviews]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -44,29 +57,6 @@ const Testimonials = () => {
       fetchReviews();
     } catch (err) {
       console.log(err);
-    }
-  };
-
-  const scrollLeft = () => {
-    if (scrollIndex > 0) {
-      const newIndex = scrollIndex - 1;
-      setScrollIndex(newIndex);
-      controls.start({
-        x: -newIndex * cardWidth,
-        transition: { type: "spring", stiffness: 300, damping: 30 }
-      });
-    }
-  };
-
-  const scrollRight = () => {
-    const maxIndex = Math.max(0, reviews.length - Math.floor(carouselRef.current?.offsetWidth / cardWidth) || 1);
-    if (scrollIndex < maxIndex) {
-      const newIndex = scrollIndex + 1;
-      setScrollIndex(newIndex);
-      controls.start({
-        x: -newIndex * cardWidth,
-        transition: { type: "spring", stiffness: 300, damping: 30 }
-      });
     }
   };
 
@@ -99,90 +89,70 @@ const Testimonials = () => {
         </p>
       )}
 
-      {!loading && reviews.length > 0 && (
-        <div className="relative">
-          {/* Navigation Buttons */}
-          {scrollIndex > 0 && (
-            <button
-              onClick={scrollLeft}
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 dark:bg-gray-800/80 backdrop-blur-md p-2 rounded-full shadow-lg hover:scale-110 transition-transform"
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-            </button>
-          )}
-          
-          {scrollIndex < reviews.length - Math.floor(carouselRef.current?.offsetWidth / cardWidth) && (
-            <button
-              onClick={scrollRight}
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 dark:bg-gray-800/80 backdrop-blur-md p-2 rounded-full shadow-lg hover:scale-110 transition-transform"
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
-          )}
-
-          <div className="relative w-full overflow-hidden pb-8" ref={carouselRef}>
+      {/* ✅ Wrapper ref for measuring visible width */}
+      <div ref={containerRef} className="relative w-full overflow-hidden pb-8">
+        <motion.div
+          ref={trackRef}
+          drag="x"
+          dragConstraints={{ left: dragLeft, right: 0 }} // ✅ dynamic + right: 0 snaps it back
+          dragElastic={0.1}                              // ✅ slight resistance at edges
+          dragTransition={{ bounceStiffness: 300, bounceDamping: 30 }} // ✅ smooth snap-back
+          className="flex gap-6 cursor-grab active:cursor-grabbing"
+        >
+          {reviews.map((t, i) => (
             <motion.div
-              animate={controls}
-              className="flex gap-6"
-              style={{ width: "max-content" }}
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: i * 0.08 }}
+              viewport={{ once: true }}
+              className="min-w-[280px] sm:min-w-[340px] lg:min-w-[380px]
+                         max-w-[380px]
+                         p-6 rounded-2xl bg-white/40 dark:bg-gray-800/40
+                         backdrop-blur-xl border border-white/40 dark:border-white/10
+                         shadow-xl hover:shadow-blue-500/20 transition-all"
             >
-              {reviews.map((t, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: i * 0.08 }}
-                  viewport={{ once: true }}
-                  className="min-w-[280px] sm:min-w-[340px] lg:min-w-[380px]
-                             max-w-[380px]
-                             p-6 rounded-2xl bg-white/40 dark:bg-gray-800/40
-                             backdrop-blur-xl border border-white/40 dark:border-white/10
-                             shadow-xl hover:shadow-blue-500/20 transition-all"
+              <div className="mb-4">
+                <h3 className="text-gray-900 dark:text-white font-semibold text-lg">
+                  {t.username}
+                </h3>
+                <p className="text-gray-600 dark:text-gray-400 text-sm">
+                  {t.positionOfReviewer}
+                </p>
+              </div>
+
+              <div className="relative mb-4">
+                <p
+                  className="text-gray-700 dark:text-gray-300 leading-relaxed
+                             text-sm sm:text-base line-clamp-4
+                             max-h-[6.5rem] overflow-hidden"
                 >
-                  <div className="mb-4">
-                    <h3 className="text-gray-900 dark:text-white font-semibold text-lg">
-                      {t.username}
-                    </h3>
-                    <p className="text-gray-600 dark:text-gray-400 text-sm">
-                      {t.positionOfReviewer}
-                    </p>
-                  </div>
+                  "{t.message}"
+                </p>
+                <div className="absolute bottom-0 left-0 w-full h-6 bg-gradient-to-t from-white/80 dark:from-gray-800/80 to-transparent pointer-events-none" />
+              </div>
 
-                  <div className="relative mb-4">
-                    <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-sm sm:text-base line-clamp-4 max-h-[6.5rem] overflow-hidden">
-                      “{t.message}”
-                    </p>
-                    <div className="absolute bottom-0 left-0 w-full h-6 bg-gradient-to-t from-white/80 dark:from-gray-800/80 to-transparent pointer-events-none" />
-                  </div>
-                  
-                  <div className="flex gap-1 mb-3">
-                    {Array.from({ length: t.star }).map((_, idx) => (
-                      <span key={idx} className="text-yellow-400 text-lg">★</span>
-                    ))}
-                  </div>
+              <div className="flex gap-1 mb-3">
+                {Array.from({ length: t.star }).map((_, idx) => (
+                  <span key={idx} className="text-yellow-400 text-lg">★</span>
+                ))}
+              </div>
 
-                  {t.projectUrl && (
-                    <a
-                      href={t.projectUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="text-blue-500 text-sm underline hover:text-blue-600 dark:hover:text-cyan-400 transition"
-                    >
-                      View Project →
-                    </a>
-                  )}
-                </motion.div>
-              ))}
+              {t.project && (
+                <a
+                  href={t.project}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-blue-500 text-sm underline hover:text-blue-600 dark:hover:text-cyan-400 transition"
+                >
+                  View Project →
+                </a>
+              )}
             </motion.div>
-          </div>
-        </div>
-      )}
+          ))}
+        </motion.div>
+      </div>
 
-      {/* Modal remains the same */}
       {open && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex justify-center items-center z-50 p-4">
           <div className="bg-white dark:bg-gray-900 p-8 rounded-xl w-full max-w-md shadow-xl border border-white/20 dark:border-gray-700">
@@ -197,14 +167,12 @@ const Testimonials = () => {
                 required
                 onChange={(e) => setForm({ ...form, username: e.target.value })}
               />
-
               <input
                 className="w-full p-3 rounded-lg bg-gray-100 dark:bg-gray-800 text-black dark:text-white"
                 placeholder="Position (e.g. Client / Director)"
                 required
                 onChange={(e) => setForm({ ...form, positionOfReviewer: e.target.value })}
               />
-
               <textarea
                 rows="3"
                 className="w-full p-3 rounded-lg bg-gray-100 dark:bg-gray-800 text-black dark:text-white"
@@ -212,7 +180,6 @@ const Testimonials = () => {
                 required
                 onChange={(e) => setForm({ ...form, message: e.target.value })}
               />
-
               <input
                 type="number"
                 min="1"
@@ -222,13 +189,11 @@ const Testimonials = () => {
                 required
                 onChange={(e) => setForm({ ...form, star: Number(e.target.value) })}
               />
-
               <input
                 className="w-full p-3 rounded-lg bg-gray-100 dark:bg-gray-800 text-black dark:text-white"
                 placeholder="Project URL (optional)"
                 onChange={(e) => setForm({ ...form, projectUrl: e.target.value })}
               />
-
               <div className="flex justify-between pt-4">
                 <button
                   type="button"
@@ -237,7 +202,6 @@ const Testimonials = () => {
                 >
                   Cancel
                 </button>
-
                 <button
                   type="submit"
                   className="px-5 py-2 rounded-lg bg-gradient-to-r from-blue-500 to-cyan-400 text-white shadow-lg"
