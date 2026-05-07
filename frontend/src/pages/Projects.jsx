@@ -53,7 +53,7 @@ const projects = [
   {
     title: "Portfolio Website",
     description:
-      "My personal developer portfolio — built with React, Tailwind, Express, Framer Motion, and MongoDB. Features animations, dark mode, and backend integration.",
+      "A fully coustomized e-commerce website , intregrated with razorpay and shiprocket for secure payments and on time product delivery. ",
     tech: ["React","MongoDB","Express", "Node.js","Digital Ocean","Nginx","n8n","Twillio","Shiprocket","Razorpay"],
     image:
       "https://res.cloudinary.com/dkrwq4wvi/image/upload/v1778151100/tuberose_protfolio.png",
