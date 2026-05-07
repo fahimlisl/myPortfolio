@@ -14,16 +14,6 @@ const projects = [
   //   github: "https://github.com/fahimlisl/rhacademy",
   // },
   {
-    title: "Portfolio Website",
-    description:
-      "My personal developer portfolio — built with React, Tailwind, Express, Framer Motion, and MongoDB. Features animations, dark mode, and backend integration.",
-    tech: ["React", "Framer Motion", "Tailwind"],
-    image:
-      "https://res.cloudinary.com/dkrwq4wvi/image/upload/v1762710961/myport.jpg",
-    demo: "https://fahim.in",
-    github: "https://github.com/fahimlisl/myPortfolio",
-  },
-  {
     title: "Role-Based School Management System",
     description:
       "A full-stack school management system powered by secure role-based authentication, enabling Admin, Teacher, and Student dashboards.",
@@ -54,10 +44,20 @@ const projects = [
     title: "AlphaGym – Fully Customized Gym Management System",
     description:
     "A MERN stack gym management platform with member tracking, attendance, fee management, and automated workflows, deployed on a production VPS.",
-    tech: ["React","MongoDB","Express", "Node.js","Digital Ocean","Nginx","n8n"],
+    tech: ["React","MongoDB","Express", "Node.js","Digital Ocean","Nginx","n8n","Razorpay"],
     image: "https://res.cloudinary.com/dkrwq4wvi/image/upload/v1771656754/alphagym-portfolio.png",
     demo: "https://alphagym.fit",
     // demo: "",
+    github: "",
+  },
+  {
+    title: "Portfolio Website",
+    description:
+      "My personal developer portfolio — built with React, Tailwind, Express, Framer Motion, and MongoDB. Features animations, dark mode, and backend integration.",
+    tech: ["React","MongoDB","Express", "Node.js","Digital Ocean","Nginx","n8n","Twillio","Shiprocket","Razorpay"],
+    image:
+      "https://res.cloudinary.com/dkrwq4wvi/image/upload/v1778151100/tuberose_protfolio.png",
+    // demo: "https://tuberose.co.in",
     github: "",
   },
 ];
