@@ -51,7 +51,7 @@ const projects = [
     github: "",
   },
   {
-    title: "Portfolio Website",
+    title: "TubeRose - Ecommerce",
     description:
       "A fully coustomized e-commerce website , intregrated with razorpay and shiprocket for secure payments and on time product delivery. ",
     tech: ["React","MongoDB","Express", "Node.js","Digital Ocean","Nginx","n8n","Twillio","Shiprocket","Razorpay"],
