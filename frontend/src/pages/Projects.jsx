@@ -60,6 +60,16 @@ const projects = [
     // demo: "https://tuberose.co.in",
     github: "",
   },
+  {
+    title: "Alig Foundation - An online learning platform",
+    description:
+      "A fully coustomized edtech website , intregrated with razorpay for secure payments",
+    tech: ["React","MongoDB","Express", "Node.js","Digital Ocean","Nginx","n8n","Razorpay"],
+    image:
+      "https://res.cloudinary.com/dkrwq4wvi/image/upload/v1782550430/alig_foudnation_my_portfolio.png",
+    demo: "https://aligfoundation.com",
+    github: "",
+  },
 ];
 
 const Projects = () => {
